@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        function noDups(arr) { //declaring a function that will take an array as an argument
+            var brr = []; //declaring a var array named brr
+            for (var i = 0; i < arr.length; i++) { //starting a counter for the contents of the argument array
+                if (brr.indexOf(arr[i]) === -1) { //if the var array has no index of the current value in the argument array...
+                    brr.push(arr[i]); //push that value into the var array 
+                } //ends if statement that determines if a value gets pushed
+            } //ends the for loop after all values in the argument array have processed
+            console.log(brr); //displays the var array which is has the same values and order as the argument array, but without duplicates
+        } //ends function
+
+        noDups([1,1,2,3,1,2,3]); // [1, 2, 3]
+        noDups([1,4,4,4,2,2,4,4,4]); // [1, 4, 2]
+    </script>
+</body>
+</html>

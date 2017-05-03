@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+//Although Pig Latin is not a real language, it still takes on the rules of whatever language it is modifying.
+//I must note that the word "quick" translates to "ickquay" because "u" always follows "q".
+//Additionally, I have opted to follow the "'whay'-after-vowel" rule to make the phonetics easier.
+
+        function swineSpeak(english) { //declaring a function that will take some english string as an argument
+            english = english.toLowerCase(); //setting the entered string to all lower case
+            var arr = english.split(" "); //turning that string into a var array, separating them at the removal of the spaces (string of " ")
+            for (var i = 0; i < arr.length; i++) { //starting a count through var arr to check for two exceptions, the first (below)checks for words starting in a vowel (characters at 0th index in the string)
+                if (arr[i].charAt(0) === "a" || arr[i].charAt(0) === "e" || arr[i].charAt(0) === "i" || arr[i].charAt(0) === "o" || arr[i].charAt(0) === "u") {
+                    arr[i] = arr[i] + "whay"; //if true, "whay" is added to the end of the string to form a new string in its place
+                } else if (arr[i].charAt(0) === "q" && arr[i].charAt(1) === "u") { //the second exception deals with words starting with "qu" (characters at the 0th and 1st index of the string)
+                    arr[i] = arr[i].slice(2, arr[i].length) + "quay"; //create a new string with the first two characters removed from the original, plus the original string's first character, plus "quay"
+                } else { //if niether of those exceptions were found, normal protocol:
+                    arr[i] = arr[i].slice(1, arr[i].length) + arr[i].charAt(0) + "ay"; //new string made from the orignal with the first letter cut off, plus that first letter, plus "ay"
+                } //ends statement
+            } //ends for loop through the array
+            arr[0] = arr[0].toUpperCase().charAt(0) + arr[0].slice(1, arr[0].length); //changes the first character of the first string in the array to upper case
+            console.log(arr.join(" ")); //displays the array transformed back into a string, separating each word with a space (" ")
+        } //goodbye function! you're fun and i'd like to use you again.
+
+        swineSpeak("The quick brown fox"); //provided test... updated answer: "Hetay ickquay rownbay oxfay"
+
+        function unSwine(pigLatin) { //declares function to take in pig latin as an argument
+            pigLatin = pigLatin.toLowerCase(); //let's set that to all lower case like above
+            var brr = pigLatin.split(" "); //turns the string into an array like above
+            for (var j = 0; j < brr.length; j++) { //starts a count through that array of strings
+                if (brr[j].endsWith("whay")) { //first exception: vowel starting words end in "whay" in pig latin. this checks the final characters of the current string
+                    brr[j] = brr[j].slice(0, brr[j].length - 4); //if true, make it a new string out of the original with the last three characters ("whay") sliced off
+                } else if (brr[j].endsWith("quay")) { //the other exception: "qu" words end in "quay" in pig latin. checks for that ending in current string
+                    brr[j] = "qu" + brr[j].slice(0, -4); // new string from "qu" plus the original string with the last four characters ("quay") removed
+                } else { //onto normal protocol...
+                    brr[j] = brr[j].charAt(brr[j].length - 3) + brr[j].slice(0, -3); //new string made of the third-to-last character of the original string, plus the original string with the last three characters sliced off 
+                } //ends statement
+            } //ends for loop through the array
+            brr[0] = brr[0].toUpperCase().charAt(0) + brr[0].slice(1, brr[0].length); //just like above, capitalizing the first letter of the first string in the array
+            console.log(brr.join(" ")); //displaying the transformed strings of the array into a single string, separated by spaces (" ")
+        }; //ends the function
+
+        unSwine("Hetay ickquay rownbay oxfay"); //provided test... answer: "The quick brown fox"
+    </script>
+</body>
+</html>

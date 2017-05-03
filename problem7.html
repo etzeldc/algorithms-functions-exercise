@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        function cutOffs (arr, cutoff) { //declaring a function that will take in two arguments: an array and a "cutoff value"
+            var brr = []; //declaring a var array and setting it to empty
+            for (var i = 0; i < arr.length; i++) { //starting a counter through the array passed through the argument
+                if (arr[i] > cutoff) { //a check to see if the first indexed value is greater than the provided cutoff value
+                    brr[i] = cutoff; //if that indexed value is greater than the cutoff, that corresponding indexed value will be set to the cutoff in the var array
+                } else { //otherwise...
+                    brr.push(arr[i]); //that indexed value will be pushed into th vasr array
+                } //ends the statement
+            } //ends the for loop
+            console.log(brr); //displays the var array
+        } //adios, mi function
+
+        cutOffs([1,2,3,4,5,6,7,8], 4); //-> [1,2,3,4,4,4,4,4] test
+        cutOffs([1,5,7,3,1,5,7], 3); //-> [1,3,3,3,1,3,3] test
+    </script>
+</body>
+</html>

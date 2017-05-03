@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        function leapYear(year) { //declaring function named leapYear with argument year
+            if (year % 100 === 0 && year % 400 !== 0) { //centurial leap years only occur every 4 centuries. Most specific condition, so we test first
+                return "false"; //checks for centurial years and sees if they occured in an incriment of four centuries, if not it fails
+            } //ends this if statment
+            if (year % 4 === 0) { //checks to see if the year that isnt a centurial non-leap year is a factor of 4...
+                return "true"; //and therefore returns that is in fact a leap year
+            } else { //all other potential values that fail these conditions are not leap years, and so...
+                return "false"; //they return false
+            } //ends this if/else statement
+        } //ends function
+
+        console.log(leapYear(1962)); //tests a non leap year ... false
+        console.log(leapYear(1900)); //tests a centurial non leap year ... false
+        console.log(leapYear(2000)); //tests a centurial leap year ... true
+        console.log(leapYear(2016)); //tests a leap year ... true
+
+
+
+
+    </script>
+</body>
+</html>

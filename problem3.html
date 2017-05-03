@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        function missingInt(arr) { //declares a function named missingInt that takes an array as an argument
+            for (var index = 0; index <= arr.length; index++) { //starting a zero-indexed counter to go through that array, allowing for an additional count beyond the array's length in case the array doesnt have any missing integers
+                if (arr[index] !== index + 1) { //if the value of the counted index position is not equal to one more than its index position (the array is zero-indexed, but each index's value should be one greater than the place its in), we have reached our first missing integer
+                    return index + 1; //returns that missing integer
+                } //ends if statment
+            } //ends for loop
+        } //ends function
+
+        console.log(missingInt([1,2,5])); //tests for a missing integer in the middle of the array
+        console.log(missingInt([1,2,3,4,5])); //tests for a missing integer beyond the array values
+        console.log(missingInt([3,4,5])); //tests for a missing integer at the beginning of the array
+
+
+    </script>
+</body>
+</html>

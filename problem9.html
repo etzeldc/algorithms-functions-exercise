@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        function newSort(arr, brr) { // declares an array named newSort that takes in two arrays as arguments
+            var crr = arr.concat(brr); // declares a var array to contain the concatenated arrays that were entered as arguments
+            crr.sort(function(a, b) { // sorts the newly created array with a function that takes in two arguments to override the Unicode standards of sorting values within an array
+                return a - b; // checks the consequent numbers of var crr to ensure a negative value (correctly ordered). if positive, 'a' moves one value to left to compare to previous values until the appropriate place is found for that value
+            }); // ends the array sorting function
+            console.log(crr); // consoles the newly sorted var crr
+        } // ends the overall sorting function
+
+
+        newSort([1,2,5,6,9], [3,4,5,10]); //provided test array... answer: [1, 2, 3, 4, 5, 5, 6, 9, 10]
+        newSort([], []); //provided test array... answer: []
+        newSort([-1, 0, 1], [-2, 2]); //provided test array... answer: [-2, -1, 0, 1, 2]
+
+    </script>
+</body>
+</html>

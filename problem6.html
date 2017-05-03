@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        function sameValue(arr, brr) { //declaring a function that takes two arrays as arguments
+            if (arr.sort().join() === brr.sort().join()) { //if we put each array into order and join each of them into separate strings, we can use those strings to determine equality
+                return "true"; //if the strings are equal, the arrays are, so true
+            } //closes if statement
+            return "false"; //if the strings aren't equal, the arrays aren't, so false
+        } //ends function
+
+        console.log(sameValue([], [])); // true
+        console.log(sameValue([2, 3, 4], [1, 2, 3])); // false
+        console.log(sameValue(["a", "c", "b"], ["a", "b", "c"])); // true
+        console.log(sameValue([1, 1, 1], [1, 1, 1, 1])); // false
+        
+    </script>
+</body>
+</html>

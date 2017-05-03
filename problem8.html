@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        function randoVar() { //declares a function that takes in no argument
+            var rando = Math.floor(Math.random() * 100); //sets a variable to a random value between 0 and 1, multipled by 100, and round down to the nearest integer
+            return rando; //brings that value forth when called
+        } //ends randomizing function
+
+        //while the one below works just fine, it may randomly produce identical values
+        /*
+        function tenRandos() {
+            var tenList = [];
+            for (var i = 0; i < 10; i++) {
+                tenList.push(randoVar());
+            }
+            console.log(tenList);
+        }
+        */
+        
+        function tenRandos() { //declares a function that takes in no argumnet
+            var tenList = []; //declares a var array and sets it to empty
+            while (tenList.length < 11) { //starts a loop that wont finish until the var array length is 10 items
+                rando = randoVar(); //sets var rando to a random value produced by the function above
+                if (tenList.indexOf(rando) === -1) { //checks if that value is already present in the var array (the index of a nonpresent value in an array is -1)
+                    tenList.push(rando); //if it isn't present, it will be pushed into the var array
+                } //statement ends and duplicate random values "run away"
+            } //while loop ends when var array is full (10 values)
+            console.log(tenList); //displays the array in the console
+        } //ends function
+
+        tenRandos(); //calls function, produces 10 unique random numbers in an array in the console
+    </script>
+</body>
+</html>
