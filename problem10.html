@@ -12,7 +12,7 @@
             var workingArr = []; // declares a local var to hold an array working values
             var currentSum = 0; // declares a local var to hold the current sum of the working array
             for (var i = 0; i < arr.length; i++) { // starts a count through each index in the provided array
-                for (var j = 0; j < arr.length; j++) { //starts another count through each index in the array *FOR EACH* index being counted
+                for (var j = 0; j <= arr.length; j++) { //starts another count through each index in the array *FOR EACH* index being counted
                     if (currentSum < sumOfArr(arr.slice(i, j))) { // checks to see if the current sum is less than the sum of the array produced from comparing every subsequent iteration of the inner count as the potential ends for an array begun by the outer count 
                         currentSum = sumOfArr(arr.slice(i, j)); // if its less, this sets a new current sum at that value
                         workingArr[0] = i; // and sets a the sets the first value of the working array
