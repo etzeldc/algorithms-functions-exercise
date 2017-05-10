@@ -8,16 +8,29 @@
 </head>
 <body>
     <script>
-        function largestSub(arr) {
-            var subArr = [];
-            var currentMax = 0;
-            var max = 0;
-            for (var i = 0; i < arr.length; i ++) {
-                currentMax = Math.max(0, currentMax + arr[i]);
-                max = Math.max(max, currentMax);
-            }
-            console.log(max);
-        }
+        function largestSub(arr) { // declares a a function that takes in an array as an argument
+            var workingArr = []; // declares a local var to hold an array working values
+            var currentSum = 0; // declares a local var to hold the current sum of the working array
+            for (var i = 0; i < arr.length; i++) { // starts a count through each index in the provided array
+                for (var j = 0; j < arr.length; j++) { //starts another count through each index in the array *FOR EACH* index being counted
+                    if (currentSum < sumOfArr(arr.slice(i, j))) { // checks to see if the current sum is less than the sum of the array produced from comparing every subsequent iteration of the inner count as the potential ends for an array begun by the outer count 
+                        currentSum = sumOfArr(arr.slice(i, j)); // if its less, this sets a new current sum at that value
+                        workingArr[0] = i; // and sets a the sets the first value of the working array
+                        workingArr[1] = j; // and sets the last value of the working array
+                    } // ends if statement
+                } // ends inner for loop
+            } // ends outer for loop
+            var largestArr = arr.slice(workingArr[0], workingArr[1]); // creates new var array to hold the slice of the provided array that is marked by the values in the working array
+            console.log(largestArr); // consoles that array 
+        } // ends function
+
+        function sumOfArr(arr) { // declares a function that takes in the sample subarray from above to summate
+            var sumOfSub = 0; // declares a local var to hold the sum
+            for (var i = 0; i < arr.length; i++) { // starts a count through the provided subarray
+                sumOfSub = sumOfSub + arr[i]; // adds each subsequent value in the count to the sum
+            } // ends the for loop
+            return sumOfSub; // returns the sum to be used when this function is called above
+        } // ends function
 
         largestSub([1, 1, 1, -1]); //-> [1, 1, 1]
         largestSub([1, 5, -4, 3, 2, -3]); //-> [1, 5, -4, 3, 2]
